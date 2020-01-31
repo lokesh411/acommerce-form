@@ -125,6 +125,7 @@ window.onload = () => {
                 province: provinceElement.value
             }
             if (paramData.source == 'yellowmessenger') {
+                console.log('event is sent to ym')
                 window.parent.postMessage(JSON.stringify({
                     event_code: 'ym-client-event', data: JSON.stringify({
                         event: {
