@@ -126,7 +126,7 @@ window.onload = () => {
             }
             if (paramData.source == 'yellowmessenger') {
                 console.log('event is sent to ym')
-                window.parent.postMessage(JSON.stringify({
+                window.parent.postMessage({
                     event_code: 'ym-client-event', data: JSON.stringify({
                         event: {
                             code: "address-value",
@@ -135,7 +135,7 @@ window.onload = () => {
                             }
                         }
                     })
-                }), '*');
+                }, '*');
             } else if (paramData.source == 'facebook') {
                 makeAjaxCall(userAddress)
             } else {
