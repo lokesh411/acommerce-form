@@ -220,6 +220,7 @@ window.onload = () => {
             if (paramData && paramData.source == 'facebook') {
                 makeAjaxCall(userAddress)
             } else {
+                console.log('send event to ym')
                 window.parent.postMessage(JSON.stringify({
                     event_code: 'ym-client-event', data: JSON.stringify({
                         event: {
