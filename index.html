@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +9,7 @@
     <title>Acommerce Shop</title>
     <style>
         .inline-block {
-            display: inline-block!important;
+            display: inline-block !important;
         }
     </style>
 </head>
@@ -18,11 +19,8 @@
         <div class="form-group col-sm-10">
             <label for="exampleFormControlInput1">Mobile Number</label>
             <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1">+62</span>
-                </div>
-                <input id='mobile' type="text" class="form-control" placeholder="Mobile number" aria-label="Mobile number"
-                    aria-describedby="basic-addon1">
+                <input id='mobile' type="text" class="form-control" placeholder="Mobile number"
+                    aria-label="Mobile number" aria-describedby="basic-addon1">
             </div>
         </div>
         <div class="form-group col-sm-10">
@@ -31,26 +29,26 @@
                 aria-describedby="basic-addon1">
         </div>
         <div class="form-group col-sm-5 inline-block">
-            <label for="exampleFormControlInput1">Country</label>
-            <select id="country" class="form-control" id="exampleFormControlSelect1">
-            </select>
-        </div>
-        <div class="form-group col-sm-5 inline-block">
             <label for="exampleFormControlInput1">Province</label>
             <select id="province" class="form-control" id="exampleFormControlSelect1">
             </select>
         </div>
         <div class="form-group col-sm-5 inline-block">
             <label for="exampleFormControlInput1">City</label>
-            <input id="city" type="text" class="form-control" placeholder="City... " aria-label="address"
-                aria-describedby="basic-addon1">
+            <select id="city" class="form-control" id="exampleFormControlSelect1">
+            </select>
         </div>
         <div class="form-group col-sm-5 inline-block">
-            <label for="exampleFormControlInput1">PostalCode</label>
-            <input id="postal" type="text" class="form-control" placeholder="postal code... " aria-label="address"
-                aria-describedby="basic-addon1">
+            <label for="exampleFormControlInput1">District</label>
+            <select id="district" class="form-control" id="exampleFormControlSelect1">
+            </select>
         </div>
-        <div class="col-sm-10" style="text-align: center">
+        <div class="form-group col-sm-5 inline-block">
+            <label for="exampleFormControlInput1">Sub District</label>
+            <select id="sub-district" class="form-control" id="exampleFormControlSelect1">
+            </select>
+        </div>
+        <div class="form-group col-sm-10" style="text-align: center">
             <button id="submit-form" class="btn btn-primary" type="button">Submit form</button>
         </div>
     </form>
@@ -63,6 +61,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
+    <script src="master_address.js" async defer></script>
     <script src="main.js"></script>
 </body>
 
