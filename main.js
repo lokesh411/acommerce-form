@@ -194,7 +194,7 @@ window.onload = () => {
         }
     }
     const calculatePostal = () => {
-        return selectedSubDistrict.postal_code
+        return selectedSubDistrict[0].postal_code
     }
 
     const validateAllFields = () => {
