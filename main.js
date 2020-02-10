@@ -14,8 +14,8 @@ let paramData = '';
 const makeAjaxCall = (userData) => {
     $.ajax({
         type: 'POST',
+        signature: '6cab9a2aada111452fa2db8ba663fb6e29208d76e6b27b8ec75e97482bf70d2f',
         headers: {
-            signature: '6cab9a2aada111452fa2db8ba663fb6e29208d76e6b27b8ec75e97482bf70d2f',
             'Access-Control-Allow-Origin': '*',
             'Content-Type': 'application/json'
         },
