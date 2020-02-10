@@ -17,7 +17,7 @@ const makeAjaxCall = (userData) => {
         signature: '6cab9a2aada111452fa2db8ba663fb6e29208d76e6b27b8ec75e97482bf70d2f',
         headers: {  'Access-Control-Allow-Origin': '*' },
         dataType: 'jsonp',
-        url: `https://app.yellowmessenger.com/integrations/facebook/${paramData.pageId}`,
+        url: `https://cors-anywhere.herokuapp.com/https://app.yellowmessenger.com/integrations/facebook/${paramData.pageId}`,
         crossDomain: true,
         // url: `http://localhost:8080/facebook/${window.pageId}`,
         data: {
