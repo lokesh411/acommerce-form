@@ -14,29 +14,32 @@ let paramData = '';
 const makeAjaxCall = (userData) => {
     $.ajax({
         type: 'POST',
-        signature: '6cab9a2aada111452fa2db8ba663fb6e29208d76e6b27b8ec75e97482bf70d2f',
-        headers: {  'Access-Control-Allow-Origin': '*' },
-        dataType: 'jsonp',
-        url: `https://cors-anywhere.herokuapp.com/https://app.yellowmessenger.com/integrations/facebook/${paramData.pageId}`,
-        crossDomain: true,
+        headers: {
+            signature: '6cab9a2aada111452fa2db8ba663fb6e29208d76e6b27b8ec75e97482bf70d2f',
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'application/json'
+        },
+        // dataType: 'jsonp',
+        url: `https://cors-anywhere.herokuapp.com/app.yellowmessenger.com/integrations/facebook/103143677931009`,
+        // crossDomain: true,
         // url: `http://localhost:8080/facebook/${window.pageId}`,
         data: {
             entry: [{
-                id: paramData.pageId,
+                id: paramData && paramData.pageId || '103143677931009',
                 messaging: [{
                     sender: {
-                        id: paramData.psid
+                        id: paramData && paramData.psid || '3451118698292526'
                     },
                     recipient: {
-                        id: paramData.pageId
+                        id: paramData && paramData.pageId || '103143677931009'
                     },
                     postback: {
                         payload: {
                             event: 'address-value',
                             event_data: userData,
-                            uid: paramData.psid,
-                            sender: paramData.psid,
-                            pageId: paramData.pageId
+                            uid: paramData && paramData.psid || '3451118698292526',
+                            sender: paramData && paramData.psid || '3451118698292526',
+                            pageId: paramData && paramData.pageId || '103143677931009'
                         }
                     }
                 }]
@@ -63,12 +66,12 @@ window.onload = () => {
     const submitForm = document.getElementById('submit-form');
     const paramString = getQueryParams('data', window.location.href);
     const decodedString = decodeURIComponent(paramString)
-    let selectedProvince = {}, selectedCity ={}, selectedDistrict ={}, selectedSubDistrict ={};
+    let selectedProvince = {}, selectedCity = {}, selectedDistrict = {}, selectedSubDistrict = {};
 
-    const removeChildElements = (element) =>{
-        return new Promise((resolve) =>{
+    const removeChildElements = (element) => {
+        return new Promise((resolve) => {
             const childrenLength = element.children.length - 1
-            Array(element.children.length).fill(2).forEach((item,index) => {
+            Array(element.children.length).fill(2).forEach((item, index) => {
                 element.removeChild(element.children[childrenLength - index])
             })
             return resolve()
@@ -87,7 +90,7 @@ window.onload = () => {
         master_address.forEach(item => {
             allProvinces.add(item.province)
         })
-        Array.from(allProvinces).forEach(item =>{
+        Array.from(allProvinces).forEach(item => {
             let option = document.createElement('option')
             option.value = item;
             option.innerHTML = item;
@@ -102,11 +105,11 @@ window.onload = () => {
             allCities.add(item.city)
         })
         console.log('city.childNodes ::: ', city.childNodes.length)
-        if(city.children.length > 0){
+        if (city.children.length > 0) {
             await removeChildElements(city)
         }
         console.log('city.children after removing ::: ', city.children.length)
-        Array.from(allCities).forEach(item =>{
+        Array.from(allCities).forEach(item => {
             let option = document.createElement('option')
             option.value = item;
             option.innerHTML = item;
@@ -121,10 +124,10 @@ window.onload = () => {
             allDistricts.add(item.district)
         })
         console.log('district.districtNodes ::: ', district.children.length)
-        if(district.children.length > 0){
+        if (district.children.length > 0) {
             removeChildElements(district)
         }
-        Array.from(allDistricts).forEach(item =>{
+        Array.from(allDistricts).forEach(item => {
             let option = document.createElement('option')
             option.value = item;
             option.innerHTML = item;
@@ -138,10 +141,10 @@ window.onload = () => {
         selectedDistrict.forEach(item => {
             allSubDistricts.add(item.subdistrict)
         })
-        if(subDistrict.children.length > 0){
+        if (subDistrict.children.length > 0) {
             removeChildElements(subDistrict)
         }
-        Array.from(allSubDistricts).forEach(item =>{
+        Array.from(allSubDistricts).forEach(item => {
             let option = document.createElement('option')
             option.value = item;
             option.innerHTML = item;
@@ -162,7 +165,7 @@ window.onload = () => {
         console.log('selectedCity ::: ', selectedCity)
         populateDistrict()
     }
-    const districtChange = () =>{
+    const districtChange = () => {
         selectedDistrict = filterOutValues(district, selectedCity, 'district')
         console.log('selectedDistrict ::: ', selectedDistrict)
         populateSubDistrict()
