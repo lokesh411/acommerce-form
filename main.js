@@ -16,6 +16,7 @@ const makeAjaxCall = (userData) => {
         type: 'POST',
         signature: '6cab9a2aada111452fa2db8ba663fb6e29208d76e6b27b8ec75e97482bf70d2f',
         url: `https://app.yellowmessenger.com/integrations/facebook/${paramData.pageId}`,
+        crossDomain: true,
         // url: `http://localhost:8080/facebook/${window.pageId}`,
         data: {
             entry: [{
@@ -212,7 +213,7 @@ window.onload = () => {
                 mobile: mobile.value,
                 address: address.value,
                 city: city.value,
-                postal: postal,
+                postal,
                 district: district.value,
                 subDistrict: subDistrict.value,
                 province: provinceElement.value
