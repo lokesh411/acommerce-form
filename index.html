@@ -62,6 +62,47 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
+    <script>
+        window.pageId = '<%=pageId%>';
+        window.hairstyle = '<%=hairstyle%>';
+        window.hairstyle_name = '<%=hairstyle_name%>';
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.com/en_US/messenger.Extensions.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'Messenger'));
+    </script>
+
+    <script>
+        //  var psid; //1943988419230786
+        // window.extAsyncInit = function () {
+        //     // the Messenger Extensions JS SDK is done loading
+        //     var isSupported = MessengerExtensions.isInExtension();
+        //     // console.log(isSupported, "supported");
+        //     if (isSupported) {
+        //         MessengerExtensions.getContext('1943988419230786',
+        //             function success(result) {
+        //                 psid = result.psid;
+        //                 // console.log("get context", psid);
+        //             },
+        //             function error(result) {
+
+        //             }
+        //         );
+        //     }
+        // };
+
+        function closeView() {
+            MessengerExtensions.requestCloseBrowser(function success() {
+
+            }, function error(err) {
+
+            });
+        }
+    </script>
     <script src="master_address.js" async defer></script>
     <script src="main.js"></script>
 </body>
