@@ -19,9 +19,7 @@ const makeAjaxCall = (userData) => {
             'Access-Control-Allow-Origin': '*',
             'Content-Type': 'application/json'
         },
-        // dataType: 'jsonp',
-        url: `https://cors-anywhere.herokuapp.com/app.yellowmessenger.com/integrations/facebook/103143677931009`,
-        // crossDomain: true,
+        url: `https://cors-anywhere.herokuapp.com/https:app.yellowmessenger.com/integrations/facebook/${paramData.botId}`,
         // url: `http://localhost:8080/facebook/${window.pageId}`,
         data: {
             entry: [{
@@ -209,7 +207,7 @@ window.onload = () => {
         }
         return false;
     }
-
+    
     const validateForm = () => {
         if (validateAllFields()) {
             console.log('all fields are validated continue')
@@ -225,6 +223,7 @@ window.onload = () => {
             }
             if (paramData && paramData.source == 'facebook') {
                 makeAjaxCall(userAddress)
+                closeView()
             } else {
                 console.log('send event to ym')
                 window.parent.postMessage(JSON.stringify({
